@@ -10,7 +10,6 @@ CREATE TABLE users (
   username varchar(200),
   password varchar(200),
   email varchar(200),
-  phone int not null,
   Primary key(id),
   UNIQUE (username)
 );
