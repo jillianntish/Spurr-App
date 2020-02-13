@@ -44,7 +44,7 @@ angular.module('Confess-Fact', [])
           body: secret
       }
     }).then(recNum => recNum)
-
+//
   return {
     images,
     post: postSpurr,
