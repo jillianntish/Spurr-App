@@ -32,11 +32,12 @@ app.post('/api/users/signin', passport.authenticate('local-login'), (req, res) =
 
 //twilio api for messages
 app.post('/api/text', (req, res) => {
+  console.log('body', req.body);
   client.messages
   .create({
     from: '+14088444148',
-    body: 'this is the message',
-    to: `+15048758721`
+    body: req.body.body,
+    to: req.body.to
    })
   .then(message => console.log(message.sid))
   .catch(err => console.log('text error', err))
