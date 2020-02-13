@@ -35,16 +35,21 @@ angular.module('Confess-Fact', [])
       },
     }).then(imagesUrls => imagesUrls);
 
-    const texter = (num, secret) =>
+    //send secret SMS function
+    const texter = (num, secret) => {
     $http({
       method: 'POST',
       url: '/api/text',
-        formData: {
-          to: num,
-          body: secret
+      data: {
+        "to": num,
+        "body": secret.message
       }
-    }).then(recNum => recNum)
-//
+    }).then(() => {
+      console.log(secret.message)
+      $window.location.href = '#!/receive';
+    })
+  }
+
   return {
     images,
     post: postSpurr,
