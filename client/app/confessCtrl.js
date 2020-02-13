@@ -155,9 +155,8 @@ angular.module('Confess-Ctrl', [])
   };
 
   $scope.sendText = (num, secret) => {
-    console.log(num);
-    console.log(`sending that secret to ${num}`)
-    confessFact.texter(num, $scope.secret.message);
+    console.log(`sending that secret to ${$scope.num}`)
+    confessFact.texter($scope.num, $scope.secret);
   }
 
 });
