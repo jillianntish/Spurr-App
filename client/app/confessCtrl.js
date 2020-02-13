@@ -1,9 +1,11 @@
+  
 angular.module('Confess-Ctrl', [])
 .controller('confessCtrl', function ($rootScope, $scope, SpurrFact, confessFact) {
   $scope.showSender = true;
   $scope.showRecipient = true;
   $scope.showDate = true;
   $scope.showLocation = true;
+
   const modal = document.getElementById('myModal');
 
   $scope.fonts = [
@@ -151,4 +153,11 @@ angular.module('Confess-Ctrl', [])
     secretBuilder.message = SpurrFact.esc(secretBuilder.message);
     confessFact.post(secretBuilder, $rootScope.user);
   };
+
+  $scope.sendText = (num, secret) => {
+    console.log(num);
+    console.log(`sending that secret to ${num}`)
+    confessFact.texter(num, $scope.secret.message);
+  }
+
 });
