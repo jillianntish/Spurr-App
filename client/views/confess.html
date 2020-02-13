@@ -53,7 +53,12 @@
       </tr>
     </table>
     <br>
-    <button class="bigButton" ng-click="confess(secret)">Text Secret</button>
+
+    <div class="secretText">
+      <input ng-init="num=''" ng-model="num" placeholder="confess via SMS" >
+      <button class="bigButton" ng-click="sendText(num, secret.message);">Secret SMS</button>
+      <br><br>
+      </div>
 
     <button class="bigButton" ng-click="confess(secret)">Submit</button>
   </div>
