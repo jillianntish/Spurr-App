@@ -37,7 +37,7 @@ app.post('/api/text', (req, res) => {
   .create({
     from: '+14088444148',
     body: req.body.body,
-    to: req.body.to
+    to: `+1${req.body.to}`
    })
   .then(message => console.log(message.sid))
   .catch(err => console.log('text error', err))
